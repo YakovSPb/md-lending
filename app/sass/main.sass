@@ -34,6 +34,14 @@ h1, .h1
 	max-width: 630px
 	margin: 80px auto 0
 	text-align: center
+	+media-breakpoint-down(lg)
+		font-size: 25px
+		line-height: 35px
+		max-width: 244px
+		margin: 27px auto 0
+	+media-breakpoint-down(sm)
+		margin: 8px auto 0
+		padding-top: 50px
 h2, .h2, h3, h4, h5, h6
 	font-weight: 600
 	font-size: 26px
@@ -41,6 +49,13 @@ h2, .h2, h3, h4, h5, h6
 	margin: 82px 0 54px
 	text-transform: uppercase
 	text-align: center
+	+media-breakpoint-down(lg)
+		font-size: 25px
+		margin: 72px 0 34px
+	+media-breakpoint-down(sm)
+		font-size: 24px
+		line-height: 33px
+		margin: 6		2px 0 34px
 .btn
 	font-size: 17px
 	color: #fff
@@ -61,6 +76,8 @@ h2, .h2, h3, h4, h5, h6
 	border: 2px solid $accent
 	color: #fff
 	margin: 35px auto 0
+	+media-breakpoint-down(lg)
+		margin: 16px auto 0
 	&:hover
 		background: darken($accent, 10%)
 		color: #fff
@@ -83,8 +100,21 @@ h2, .h2, h3, h4, h5, h6
 // Custom Sass / Remove before use
 
 // HEADER
+.mobile-title
+	display: none
+	.slider__text
+		position: static!important
+		background-color: $yellow
+		padding-bottom: 50px
+	+media-breakpoint-down(sm)
+		display: block
+
 .header
 	margin: 46px 0
+	+media-breakpoint-down(lg)
+		margin: 46px 0 10px
+	+media-breakpoint-down(sm)
+		margin: 15px 0 10px
 	&__wrap
 		display: -webkit-flex
 		display: -moz-flex
@@ -92,9 +122,18 @@ h2, .h2, h3, h4, h5, h6
 		display: -o-flex
 		display: flex
 		justify-content: space-between
+		+media-breakpoint-down(lg)
+			flex-direction: column
+			position: relative
+	&__logo
+		img
+			+media-breakpoint-down(sm)
+				width: 138px
 	&__right
 		width: 100%
 		max-width: 748px
+		+media-breakpoint-down(lg)
+			max-width: 100%
 	&__info
 		display: -webkit-flex
 		display: -moz-flex
@@ -102,11 +141,22 @@ h2, .h2, h3, h4, h5, h6
 		display: -o-flex
 		display: flex
 		justify-content: space-between
+		+media-breakpoint-down(lg)
+			flex-direction: column
+			position: absolute
+			top: 0
+			right: 0
+			text-align: right
+	&__phone-number
+		+media-breakpoint-down(sm)
+			display: none
 	&__call
 		a
 			font-size: 15px
 			color: $light_gray
 			line-height: 37px
+		+media-breakpoint-down(lg)
+			display: none
 	&__location
 		display: -webkit-flex
 		display: -moz-flex
@@ -119,6 +169,11 @@ h2, .h2, h3, h4, h5, h6
 		line-height: 37px
 		align-items: center
 		color: $light_gray
+		+media-breakpoint-down(lg)
+			justify-content: right
+			max-width: 100%
+		+media-breakpoint-down(lg)
+			display: none
 		img
 			height: 22px
 			width: 16px
@@ -141,6 +196,16 @@ h2, .h2, h3, h4, h5, h6
 			&:hover
 				color: #000
 				text-decoration: none
+	.gumburger
+		width: 26px
+		height: 22px
+		margin-top: 6px
+		margin-left: 6px
+		display: none
+		cursor: pointer
+		+media-breakpoint-down(sm)
+			display: block
+
 .main-menu
 	display: -webkit-flex
 	display: -moz-flex
@@ -148,8 +213,6 @@ h2, .h2, h3, h4, h5, h6
 	display: -o-flex
 	display: flex
 	list-style-type: none
-
-.main-menu
 	padding-left: 0
 	display: -webkit-flex
 	display: -moz-flex
@@ -158,14 +221,48 @@ h2, .h2, h3, h4, h5, h6
 	display: flex
 	justify-content: space-between
 	margin-top: 12px
+	+media-breakpoint-down(lg)
+		margin-top: 62px
+	+media-breakpoint-down(sm)
+		display: none
+		background: #f2f2f2
+		padding: 20px
+		border-radius: 20px
+	.close-menu
+		display: none
+		position: absolute
+		right: 7px
+		top: -24px
+		margin: 0		
+		font-size: 50px
+		cursor: pointer
+		right: 16px
+		top: 7px
+		line-height: 30px
+		+media-breakpoint-down(sm)
+			display: block
 	li
 		a
 			font-size: 17px
 			color: #000
-
+			+media-breakpoint-down(sm)
+				line-height: 33px
+.main-menu__active
+	display: block
+	position: absolute
+	width: 100%
+	max-width: 277px
+	top: 0
+	right: 0
+	z-index: 10000000
+	margin-top: 0	
+	padding-bottom: 40px
 // PROMO
 .promo
 	.slider
+		&__item
+			+media-breakpoint-down(sm)
+				display: none
 		.y_prevArrow, .y_nextArrow
 			position: absolute
 			z-index: 1000
@@ -177,6 +274,8 @@ h2, .h2, h3, h4, h5, h6
 			transition: opacity .5s ease
 			&:hover
 				opacity: 1
+			+media-breakpoint-down(sm)
+				display: none
 			img
 				width: 30px!important
 				height: 54px!important
@@ -186,9 +285,16 @@ h2, .h2, h3, h4, h5, h6
 			left: 16px
 		&__wrap
 			position: relative
-		img
-			width: 100%
-			height: auto
+			img
+				width: 100%
+				height: auto
+		&__img--1200
+			+media-breakpoint-down(lg)
+				display: none
+		&__img--750
+			display: none
+			+media-breakpoint-down(lg)
+				display: block
 		&__text
 			position: absolute
 			top: 0
@@ -203,8 +309,15 @@ h2, .h2, h3, h4, h5, h6
 // SECT-catalog
 .tabs__wrapper
 	.tabs
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		+media-breakpoint-down(sm)
+			flex-direction: column
 		.tab
-			width: calc(99%/3)
+			flex: 0 1 100%
 			display: inline-block
 			font-size: 17px
 			text-align: center
@@ -216,6 +329,8 @@ h2, .h2, h3, h4, h5, h6
 			position: relative
 			border-top: 1px solid #929292
 			margin: 0
+			+media-breakpoint-down(sm)
+				padding-bottom: 10px
 			&:nth-child(2)
 				&:before
 					content: ''
@@ -236,10 +351,16 @@ h2, .h2, h3, h4, h5, h6
 					left: -5px
 			&:first-child
 				border-left: 1px solid #929292
-				border-top-left-radius: 20px	
+				border-top-left-radius: 20px
+				+media-breakpoint-down(sm)
+					border-radius: 0
+					border-left: 0
 			&:last-child
 				border-top-right-radius: 20px		
 				border-right: 1px solid #929292
+				+media-breakpoint-down(sm)
+					border-radius: 0
+					border-right: 0
 				&:after
 					display: none
 			&:first-child.active
@@ -250,6 +371,9 @@ h2, .h2, h3, h4, h5, h6
 			color: $text
 			background-color: $gray
 			border-top: 1px solid $gray
+			+media-breakpoint-down(sm)
+				color: #fff
+				background-color: #2785ca
 .tab_content
 	.tab_item
 		background-color: $gray
@@ -266,6 +390,9 @@ h2, .h2, h3, h4, h5, h6
 		height: auto
 		align-items: flex-start
 		margin-bottom: 34px
+		+media-breakpoint-down(sm)
+		margin: 0 auto 34px
+		text-align: center
 		p
 			font-size: 17px
 			color: #000
@@ -283,13 +410,23 @@ h2, .h2, h3, h4, h5, h6
 			width: 250px
 			border-radius: 15px
 			box-shadow: 1px 1px 5px 2px rgba(50, 50, 50, .28)
-
+			+media-breakpoint-down(lg)
+				width: 220px
+				height: 230px
 // APPLICATION
 .application
 	background: $yellow
 	&__wrap
 		position: relative
 		text-align: center
+	&__img--1200
+		+media-breakpoint-down(lg)
+			display: none
+	&__img--750
+		display: none
+		+media-breakpoint-down(lg)
+			display: block
+			margin: 0 auto
 	&__info
 		position: absolute
 		top: 0
@@ -301,8 +438,12 @@ h2, .h2, h3, h4, h5, h6
 			font-size: 21px
 			display: block
 			text-align: center
-			margin: 80px 0 30px
+			margin: 80px auto 30px
 			display: block
+			max-width: 327px
+			+media-breakpoint-down(lg)
+				max-width: 300px
+				margin: 80px auto 30px
 		.btn
 			margin: 0 auto
 
@@ -314,6 +455,8 @@ h2, .h2, h3, h4, h5, h6
 		margin: 0 auto
 		font-weight: 500
 		font-size: 16px
+		+media-breakpoint-down(lg)
+			max-width: 630px
 	&__h4
 		font-weight: 500
 		font-size: 21px
@@ -326,12 +469,16 @@ h2, .h2, h3, h4, h5, h6
 		display: -o-flex
 		display: flex
 		justify-content: space-between
+		+media-breakpoint-down(lg)
+			flex-wrap: wrap
 	&__item
 		text-align: center
 		width: 170px
 		font-size: 17px
 		line-height: 22px
 		margin-bottom: 30px
+		+media-breakpoint-down(lg)
+			width: 33%
 		p
 			margin-top: 20px
 		img
@@ -346,6 +493,8 @@ h2, .h2, h3, h4, h5, h6
 		background-color: $yellow
 		text-align: center
 		height: 286px
+		+media-breakpoint-down(lg)
+			height: 312px
 	&__title
 		font-size: 21px
 		font-weight: 500
@@ -355,6 +504,10 @@ h2, .h2, h3, h4, h5, h6
 		font-size: 16px
 		font-weight: 500
 		margin-bottom: 30px
+		+media-breakpoint-down(lg)
+			max-width: 590px
+			margin: 0 auto 30px
+			line-height: 19px
 	.btn
 		display: block
 		margin: 0 auto
@@ -362,8 +515,14 @@ h2, .h2, h3, h4, h5, h6
 // OUR WORK
 .tabs__wrapper2
 	.tabs2
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
 		.tab2
-			width: calc(99%/3)
+			flex: 0 1 100%	
+			box-sizing: border-box
 			display: inline-block
 			font-size: 17px
 			text-align: center
@@ -442,10 +601,14 @@ h2, .h2, h3, h4, h5, h6
 					width: 100%
 					height: auto
 
-// S-CONTACT
+// S-CONTACT 
 .s-contact
 	&__wrap
 		background-color: $accent
+	&__map
+		width: 458px
+		+media-breakpoint-down(lg)
+			max-width: 328px
 	&__flex
 		display: -webkit-flex
 		display: -moz-flex
@@ -481,11 +644,28 @@ h2, .h2, h3, h4, h5, h6
 		display: flex
 		justify-content: space-between
 		align-items: center
+		position: relative
+		+media-breakpoint-down(lg)
+			height: 200px
+			align-items: flex-start
 	&__menu
+		+media-breakpoint-down(lg)
+			position: absolute
+			bottom: 0
+			left: 0
+			width: 100%
 		ul
 			padding-top: 20px
 			padding-left: 0
 			list-style-type: none
+			margin-bottom: 30px
+			+media-breakpoint-down(lg)
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				justify-content: space-around
 			li
 				a
 					color: #474747
@@ -508,21 +688,29 @@ h2, .h2, h3, h4, h5, h6
 				font-size: 18px
 				&:hover
 					text-decoration: none
+	&__copy
+		font-size: 14px
+		background-color: #5c575a
+		height: 50px
+		text-align: center
+		line-height: 50px
+		a
+			color: #fff
 
 
-
-.form__wrap
-	padding: 15px
-	background-color: $yellow
-	display: inline-block
+//FORM
+.hidden
+	display: none
 .form
+	position: relative
 	display: flex
+	margin: 0 auto
 	flex-direction: column
 	max-width: 480px
 	width: 100%
 	padding: 40px
 	border-radius: 20px
-	background-color: #fff
+	background-color: #fff	
 	.form__p
 		color: #363636
 		text-align: center
@@ -557,6 +745,14 @@ h2, .h2, h3, h4, h5, h6
 		&::-ms-input-placeholder
 			color: #363636
 
+button.mfp-close
+	padding: 20px	
+.mfp-close //картинка закрытися popup
+	width: 22px
+	height: 22px
+	padding: 0
+	right: 8px
+	top: 5px
 .success
 	position: absolute
 	display: none
