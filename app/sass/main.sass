@@ -340,6 +340,8 @@ h2, .h2, h3, h4, h5, h6
 					width: 5px	
 					top: -1px
 					left: -5px
+					+media-breakpoint-down(sm)
+						display: none
 			&:nth-child(3)
 				&:before
 					content: ''
@@ -349,6 +351,8 @@ h2, .h2, h3, h4, h5, h6
 					width: 5px	
 					top: -1px
 					left: -5px
+					+media-breakpoint-down(sm)
+						display: none
 			&:first-child
 				border-left: 1px solid #929292
 				border-top-left-radius: 20px
@@ -375,6 +379,10 @@ h2, .h2, h3, h4, h5, h6
 				color: #fff
 				background-color: #2785ca
 .tab_content
+	position: relative
+	+media-breakpoint-down(sm)
+		padding-bottom: 107px
+		background-color: $gray
 	.tab_item
 		background-color: $gray
 		padding: 26px 26px 0 26px
@@ -385,14 +393,17 @@ h2, .h2, h3, h4, h5, h6
 		display: flex
 		justify-content: space-between
 		flex-wrap: wrap
+		overflow: hidden
+		position: relative
+		height: auto
 	.tab__icon
 		max-width: 252px
 		height: auto
 		align-items: flex-start
 		margin-bottom: 34px
 		+media-breakpoint-down(sm)
-		margin: 0 auto 34px
-		text-align: center
+			margin: 0 auto 34px
+			text-align: center
 		p
 			font-size: 17px
 			color: #000
@@ -416,6 +427,9 @@ h2, .h2, h3, h4, h5, h6
 // APPLICATION
 .application
 	background: $yellow
+	.container
+		+media-breakpoint-down(sm)
+			padding: 0
 	&__wrap
 		position: relative
 		text-align: center
@@ -425,6 +439,13 @@ h2, .h2, h3, h4, h5, h6
 	&__img--750
 		display: none
 		+media-breakpoint-down(lg)
+			display: block
+			margin: 0 auto
+		+media-breakpoint-down(sm)
+			display: none
+	&__img--320
+		display: none
+		+media-breakpoint-down(sm)
 			display: block
 			margin: 0 auto
 	&__info
@@ -444,6 +465,8 @@ h2, .h2, h3, h4, h5, h6
 			+media-breakpoint-down(lg)
 				max-width: 300px
 				margin: 80px auto 30px
+			+media-breakpoint-down(sm)
+				margin: 40px auto 30px
 		.btn
 			margin: 0 auto
 
@@ -479,6 +502,11 @@ h2, .h2, h3, h4, h5, h6
 		margin-bottom: 30px
 		+media-breakpoint-down(lg)
 			width: 33%
+		+media-breakpoint-down(sm)
+			width: 100%
+			p
+				max-width: 160px
+				margin: 20px auto
 		p
 			margin-top: 20px
 		img
@@ -495,11 +523,19 @@ h2, .h2, h3, h4, h5, h6
 		height: 286px
 		+media-breakpoint-down(lg)
 			height: 312px
+		+media-breakpoint-down(sm)
+			padding: 0 15px 0 15px
+			height: 400px
 	&__title
 		font-size: 21px
 		font-weight: 500
 		padding-top: 54px
 		padding-bottom: 30px
+		+media-breakpoint-down(sm)
+			margin-top: 30px
+			line-height: 20px
+			padding-top: 40px
+			font-size: 20px
 	&__desc
 		font-size: 16px
 		font-weight: 500
@@ -520,6 +556,8 @@ h2, .h2, h3, h4, h5, h6
 		display: -ms-flex
 		display: -o-flex
 		display: flex
+		+media-breakpoint-down(sm)
+			flex-direction: column
 		.tab2
 			flex: 0 1 100%	
 			box-sizing: border-box
@@ -534,6 +572,8 @@ h2, .h2, h3, h4, h5, h6
 			position: relative
 			border-top: 1px solid #929292
 			margin: 0
+			+media-breakpoint-down(sm)
+				padding-bottom: 10px
 			&:nth-child(2)
 				&:before
 					content: ''
@@ -543,6 +583,8 @@ h2, .h2, h3, h4, h5, h6
 					width: 5px	
 					top: -1px
 					left: -5px
+					+media-breakpoint-down(sm)
+						display: none
 			&:nth-child(3)
 				&:before
 					content: ''
@@ -552,12 +594,20 @@ h2, .h2, h3, h4, h5, h6
 					width: 5px	
 					top: -1px
 					left: -5px
+					+media-breakpoint-down(sm)
+						display: none
 			&:first-child
 				border-left: 1px solid #929292
-				border-top-left-radius: 20px	
+				border-top-left-radius: 20px
+				+media-breakpoint-down(sm)
+					border-radius: 0
+					border-left: 0
 			&:last-child
 				border-top-right-radius: 20px		
 				border-right: 1px solid #929292
+				+media-breakpoint-down(sm)
+					border-radius: 0
+					border-right: 0
 				&:after
 					display: none
 			&:first-child.active
@@ -568,6 +618,9 @@ h2, .h2, h3, h4, h5, h6
 			color: $text
 			background-color: $gray
 			border-top: 1px solid $gray
+			+media-breakpoint-down(sm)
+				background-color: $accent
+				color: #fff
 .tab_content2
 	.tab_item2
 		background-color: $gray
@@ -605,16 +658,24 @@ h2, .h2, h3, h4, h5, h6
 .s-contact
 	&__wrap
 		background-color: $accent
+		.container
+			+media-breakpoint-down(sm)
+				padding: 0
 	&__map
 		width: 458px
 		+media-breakpoint-down(lg)
 			max-width: 328px
+		+media-breakpoint-down(sm)
+			max-width: 100%
+			margin: 0 auto
 	&__flex
 		display: -webkit-flex
 		display: -moz-flex
 		display: -ms-flex
 		display: -o-flex
 		display: flex
+		+media-breakpoint-down(sm)
+			flex-direction: column
 	&__text
 		font-weight: 500
 		color: #fff
@@ -627,13 +688,27 @@ h2, .h2, h3, h4, h5, h6
 		flex-direction: column
 		justify-content: center
 		padding-left: 30px
+		+media-breakpoint-down(sm)
+			min-height: 260px
+			text-align: center
+			max-width: 240px
+			margin: 0 auto
+			padding: 30px 0 20px
 
 [class*="ymaps-2"][class*="-ground-pane"]
 	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale")
 	-webkit-filter:grayscale(100%)
 
+.br320
+	display: none
+	+media-breakpoint-down(sm)
+		display: block
+
 // FOOTER
 .footer
+	.container
+		+media-breakpoint-down(sm)
+			padding: 0
 	&__wrap
 		background: $gray
 		padding: 40px 60px
@@ -648,12 +723,18 @@ h2, .h2, h3, h4, h5, h6
 		+media-breakpoint-down(lg)
 			height: 200px
 			align-items: flex-start
+		+media-breakpoint-down(sm)
+			flex-direction: column
+			height: 402px
+			justify-content: flex-start
 	&__menu
 		+media-breakpoint-down(lg)
 			position: absolute
 			bottom: 0
 			left: 0
 			width: 100%
+		+media-breakpoint-down(sm)
+			position: static
 		ul
 			padding-top: 20px
 			padding-left: 0
@@ -666,13 +747,34 @@ h2, .h2, h3, h4, h5, h6
 				display: -o-flex
 				display: flex
 				justify-content: space-around
+			+media-breakpoint-down(sm)
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				flex-direction: column
+				text-align: center
 			li
 				a
 					color: #474747
 					font-size: 15px
 	&__logo
+		+media-breakpoint-down(sm)
+			position: absolute
+			bottom: 36px
+			left: 0
+			width: 100%
+			text-align: center
+		img
+			+media-breakpoint-down(sm)
+				width: 174px
+				margin: 0 auto
 	&__contact
 		text-align: right
+		+media-breakpoint-down(sm)
+			text-align: center
+			width: 100%
 		p
 			a
 				font-size: 13px
@@ -771,3 +873,50 @@ button.mfp-close
 	font-size: 30px
 	&.visible
 		display: flex
+
+.tab__lookall-but
+	display: none
+	text-transform: uppercase
+	font-weight: 500
+	font-size: 18px
+	text-align: center
+	position: absolute
+	bottom: 22px
+	left: 0
+	height: 60px
+	width: 100%
+	z-index: 1000
+	&__up
+		display: none
+	&:after
+		content: ''
+		position: absolute
+		bottom: 6px
+		left: 50%
+		margin-left: - 19px
+		background: url(../img/down-arrow.svg)
+		width: 38px
+		height: 22px
+	+media-breakpoint-down(sm)
+		display: block
+
+.tab__lookall-but__down, .tab__lookall-but__up
+	padding-bottom: 30px
+	cursor: pointer
+	z-index: 1000
+	position: relative
+.tab__lookall-but.active-button
+	&:after
+		content: ''
+		position: absolute
+		bottom: 6px
+		left: 50%
+		margin-left: - 19px
+		background: url(../img/down-arrow.svg)
+		width: 38px
+		height: 22px
+		transform: scale(1, -1)
+	.tab__lookall-but__down
+			display: none
+	.tab__lookall-but__up
+			display: block
