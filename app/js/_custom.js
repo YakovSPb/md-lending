@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // MAIN SLIDER
 $('.slider').slick({
-	prevArrow: '<div class="y_prevArrow"><img alt="" src="img/right-arrow.svg"></div>',
-	nextArrow: '<div class="y_nextArrow"><img alt="" src="img/left-arrow.svg"></div>',
+	prevArrow: '<div class="y_prevArrow"><img alt="" src="http://md-lending.ru/wp-content/themes/md-group/img/right-arrow.svg"></div>',
+	nextArrow: '<div class="y_nextArrow"><img alt="" src="http://md-lending.ru/wp-content/themes/md-group/img/left-arrow.svg"></div>',
 	slidesToShow: 1,
 	infinite: true,
 });
@@ -23,8 +23,8 @@ else {
 window.addEventListener("resize", function() {
   if (window.innerWidth > 768) {
    $('.slider').slick({
-    prevArrow: '<div class="y_prevArrow"><img alt="" src="img/right-arrow.svg"></div>',
-    nextArrow: '<div class="y_nextArrow"><img alt="" src="img/left-arrow.svg"></div>',
+    prevArrow: '<div class="y_prevArrow"><img alt="" src="http://md-lending.ru/wp-content/themes/md-group/img/right-arrow.svg"></div>',
+    nextArrow: '<div class="y_nextArrow"><img alt="" src="http://md-lending.ru/wp-content/themes/md-group/img/left-arrow.svg"></div>',
     slidesToShow: 1,
     infinite: true,
 });
@@ -35,8 +35,8 @@ window.addEventListener("resize", function() {
 
 // OUR-WORK SLIDER
 $('.tab__slider').slick({
-	prevArrow: '<div class="y_prevArrow"><img alt="" src="img/right-arrow.svg"></div>',
-	nextArrow: '<div class="y_nextArrow"><img alt="" src="img/left-arrow.svg"></div>',
+	prevArrow: '<div class="y_prevArrow"><img alt="" src="http://md-lending.ru/wp-content/themes/md-group/img/right-arrow.svg"></div>',
+	nextArrow: '<div class="y_nextArrow"><img alt="" src="http://md-lending.ru/wp-content/themes/md-group/img/left-arrow.svg"></div>',
 	slidesToShow: 3,
 	infinite: true,
   responsive: [
@@ -49,31 +49,6 @@ $('.tab__slider').slick({
   ]
 });
 
-
-// window.addEventListener("resize", function() {
-//   if (window.innerWidth <= 768) {
-//     $('.tab__slide').slick('unslick');
-//     sliderIsLive = false; 
-// }
-// else {
-//     if (sliderIsLive) {
-//       $('.tab__slide').slick({
-//           slidesToShow: 1,
-//       });
-//       sliderIsLive = true;
-//   }
-// }
-// });
-// window.addEventListener("resize", function() {
-//   if (window.innerWidth < 768) {
-//    $('.tab__slide').slick({
-//   prevArrow: '<div class="y_prevArrow"><img alt="" src="img/right-arrow.svg"></div>',
-//   nextArrow: '<div class="y_nextArrow"><img alt="" src="img/left-arrow.svg"></div>',
-//   slidesToShow: 1,
-//   infinite: true
-// });
-// }
-// });
 
 
 
@@ -106,7 +81,7 @@ $(".tabs__wrapper2 .tab2").click(function() {
 $('.popup-with-zoom-anim').magnificPopup({
     type: 'inline',
     closeBtnInside: true,
-    closeMarkup:'<button title="%title%" class="mfp-close"><img class="mfp-close" src="img/@2x/close.png"/></button>',
+    closeMarkup:'<button title="%title%" class="mfp-close"><img class="mfp-close" src="http://md-lending.ru/wp-content/themes/md-group/img/@2x/close.png"/></button>',
 });
 
 //h3 в зависимость от содержания ссылки
@@ -172,26 +147,15 @@ close.on('click', function(event){
 // END MOBILE MENU
 
 // // LOOK ALL
-// $('.tab__lookall-but').click(function(){
-//     alert('hey');
-// });
-// $('.tab_content .tab_item').css('height','1265');
+var mediaQuery = window.matchMedia("screen and (max-width: 768px)");
+mediaQuery.addListener(foo);
+foo(mediaQuery);
 
-
-
-$(document).ready(function(){
-  var windowWidth = $(window).width();
-  if (windowWidth<=768) {
- Spoiler();
-  }
-});
-
-
-window.addEventListener("resize", function() {
-  if (window.innerWidth <= 768) {
- Spoiler();
-  }
-});
+function foo(mq) {
+    if(mq.matches){
+       Spoiler();
+    }
+}
 
 function Spoiler(){
   let myspeed = 1000;
@@ -210,15 +174,22 @@ $('.tab__lookall-but__up').click(
     function() {
       $('.tab_item').animate({height:1265}, myspeed);
    $('.tab__lookall-but').toggleClass('active-button');
- 
+    setTimeout(function(){
+      var scrollTop = $('.sect-catalog').offset().top;
+        $(document).scrollTop(scrollTop);
+     }, 1000);
     });
-
-
-
 }
 
 // END LOOK ALL
 
+
+$("a").click(function () {
+    var elementClick = $(this).attr("href");
+    var destination = $(elementClick).offset().top;
+    $('html, body').animate({ scrollTop: destination }, 600);
+    return false;
+});
 
 
 });
